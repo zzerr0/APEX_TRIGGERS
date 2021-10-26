@@ -1,0 +1,15 @@
+public class PreventDuplicateClass {
+    public static void deDupeRule(List<Account> accList){
+        Set<String> accName = new Set<String>();
+        for(Account acc : accList){
+            accName.add(acc.Name);
+        }
+        
+        List<Account> existingAcc = [SELECT Name FROM Account WHERE NAME IN : accName];
+        for(Account acc : accList){
+            if(existingAcc.size() > 0){
+                acc.addError('Account already exists in your Organization with name '+acc.name);
+            }
+        }
+    }
+}
