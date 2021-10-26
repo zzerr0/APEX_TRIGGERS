@@ -1,0 +1,3 @@
+trigger PreventDuplicateTrigger on Account (before insert) {
+    CheckDuplicate.deDupeRule(Trigger.New);
+}
