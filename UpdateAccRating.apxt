@@ -1,0 +1,6 @@
+trigger UpdateAccRating on Opportunity (after insert, after update) {
+    if(Trigger.new != null){
+        UpdateAccount.UpdateAccountRating(Trigger.new);
+    }
+    
+}
